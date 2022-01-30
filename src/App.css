@@ -1,38 +1,77 @@
-.App {
+.header {
+  padding: 15px;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: #313837;
   color: white;
+  font-family: cursive;
 }
 
-.App-link {
-  color: #61dafb;
+.content {
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.img {
+  width: 100%;
+  height: 380px;
+  margin-left: 0px;
+  margin-top: 40px;
+}
+
+
+
+.img {
+  width: 100%;
+  height: 380px;
+  margin-left: 0px;
+  margin-top: 40px;
+}
+
+.img:hover {
+  transform: translateY(2px);
+  box-shadow: 2px 2px 20px 2px rgb(34, 32, 31);
+}
+
+.card {
+  padding: 10px;
+  background-color: rgb(250, 248, 248);
+}
+
+.card-title {
+ 
+font-family: 'Rubik Beastly', cursive;
+   font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.lead {
+  font-family: monospace;
+  text-shadow: 2px 0px 8px rgb(235, 38, 38);
+  margin-left: 50px;
+}
+
+.card-text>.h5 {
+  font-family: 'Pacifico', cursive;
+  font-style: oblique;
+  font-weight: bolder;
+}
+
+.pfont {
+  font-family: cursive;
+  font-style: initial;
+}
+
+.card-text{
+  margin-top: 40px;
+}
+
+
+.btn{
+  width: 20%;
+  margin-left: 10px;
+}
+
+.btn1{
+  margin-left: 30%;
+  
 }
