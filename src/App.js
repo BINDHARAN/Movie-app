@@ -7,15 +7,15 @@ export default function App() {
   const user=[
     {
       profile:"https://www.pinkvilla.com/imageresize/jai_bhim_twiiter_review_1.jpg?width=752&format=webp&t=pvorg",
-      name:"Jai Bhim(2021)",
+      name:"1. Jai Bhim(2021)",
       rating:"9.3",
       description:"When a tribal man is arrested for a case of alleged theft, his wife turns to a lawer to help bring justice",
       director:"T J Gnanavel",
       stars:"Suriya,Lijo Mol Jose,Manikandan,Rajsha vijayan"
     },
     {
-      profile:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlUkQ340Bx1uqA13162eU9DV_E3gl2sLLUs9N-dnic1G41sQuwU6YAcT5Qdd1TAOsZTLQ&usqp=CAU",
-      name:"The Shawshank Redemption(1994)",
+      profile:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6MnYgy3k47M3f-3Gk4oG5Pd7EvTcfj4F1Sw&usqp=CAU",
+      name:"2. The Shawshank Redemption",
       rating:"9.3",
       description:"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency",
       director:"Frank Darabont",
@@ -25,7 +25,7 @@ export default function App() {
     },
     {
       profile:"https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
-      name:"The Godfather(1972)",
+      name:"3. The Godfather(1972)",
       rating:"9.2",
       description:"The aging patriarch of an organized crime dynasty in postwar Newyork city transfers control of his clandestine empire to his reluctant youngest son.",
       director:"Fransis Ford Coppola",
@@ -33,7 +33,7 @@ export default function App() {
     },
     {
       profile:"https://qph.fs.quoracdn.net/main-qimg-9e897497b05d7d1dd49bca31587ad034-pjlq",
-      name:"The Dark Knight(2008)",
+      name:"4. The Dark Knight(2008)",
       rating:"9.0",
       description:"When the menace known as the joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of his ability to fight injustice.",
       director:"Christopher Nolan",
@@ -41,7 +41,7 @@ export default function App() {
     },
     {
       profile:"https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
-      name:"The Godfather part 2(1974)",
+      name:"5. The Godfather part 2(1974)",
       rating:"9.0",
       description:"The early life of Vito coreleone in 1920s newyork city is portrayed,While his son,Michael expands his grip on the family.",
       director:"Francis Ford Coppola",
@@ -50,14 +50,19 @@ export default function App() {
   ]
     return (
       <div className="App">
-       <div class="header">
-        <h1>IMDB</h1>
-
-    </div>
+       
+    <nav class="navbar navbar-dark bg-dark">
+      <img src='https://cdn4.iconfinder.com/data/icons/socialmediaicons_v120/48/imdb.png' alt='logo'></img>
+  <span class='navbar-brand'>IMDb</span>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="Text" placeholder="Search" aria-label="Search" />
+    <button class="btn btn-outline-info">Search   </button>
+  </form>
+</nav>
 
     <div class="content">
         <h4 class="text-dark font-italic "> HELLO!</h4>
-        <p class="lead" >Here are IMDb "Top 5" (Sorted by IMDb Rating Descending)...</p>
+        <p class="lead" >Here are IMDb "Top 5" Movies(Sorted by IMDb Rating Descending)...</p>
     </div>
 
 
@@ -96,12 +101,8 @@ function Movie({ name,profile,rating,description,director,stars }){
           </div>
       </div>
       
-      <hr></hr>
+      <hr className='hr'></hr>
 </div>
-
-     
-
-
 
   )
 }
