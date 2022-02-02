@@ -147,7 +147,7 @@ export default function App() {
 
        
       </div>
-      <button className='btn btn1 btn-outline-dark w-75 ml-5 ' onClick={addMovie}>Add Movie</button>
+      <button className='btn button btn-outline-dark  ' onClick={addMovie}>Add Movie</button>
       </div>
     );
   }
