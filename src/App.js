@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 export default function App() {
-  const user=[
+  const list=[
     {
       profile:"https://www.quirkybyte.com/wp-content/uploads/2021/11/Jai_bhim_2_vkgnOcidibacj.jpeg",
       name:"1. Jai Bhim(2021)",
@@ -48,7 +48,7 @@ export default function App() {
       stars:"AL Pacino,Robert De Niro,Robert Duvall,Diane Keaton"
     },
   ]
-  const [movies, setMovies] = useState( user);
+  const [movies, setMovies] = useState(list);
 
   const [movieName, setMovieName] = useState("");
   const [moviePoster, setMoviePoster] = useState("");
@@ -70,26 +70,27 @@ export default function App() {
 
    
     setMovies([...movies, newMovie]);
+    
   }
     return (
       <div className="App">
        
-  <nav class="navbar navbar-dark bg-dark">
+  <nav className="navbar navbar-dark bg-dark">
       <img src='https://cdn4.iconfinder.com/data/icons/socialmediaicons_v120/48/imdb.png' alt='logo'></img>
-     <span class='navbar-brand'>IMDb</span>
-      <form class="form-inline">
-     <input class="form-control mr-sm-2" type="Text" placeholder="Search" aria-label="Search" />
-     <button class="btn btn-outline-info">Search   </button>
+     <span className='navbar-brand'>IMDb</span>
+      <form className="form-inline">
+     <input className="form-control mr-sm-2" type="Text" placeholder="Search" aria-label="Search" />
+     <button className="btn btn-outline-info">Search   </button>
        </form>
 </nav>
 
-    <div class="content">
-        <h4 class="text-dark font-italic "> HELLO!</h4>
-        <p class="lead" >Here are IMDb "Top 5" Movies(Sorted by IMDb Rating Descending)...</p>
+    <div className="content">
+        <h4 className="text-dark font-italic "> HELLO!</h4>
+        <p className="lead" >Here are IMDb "Top 5" Movies(Sorted by IMDb Rating Descending)...</p>
     </div>
 
   
-      <div class="row">
+      <div className="row">
 
 {movies.map((nm) => ( 
 
@@ -99,9 +100,9 @@ export default function App() {
 </div>
 <hr></hr>
 
-<div class="content">
-        <h4 class="text-dark font-italic "> HELLO!</h4>
-        <p class="lead1" > If you want to add 6th rating movie to the list above, just visit our official website (https://www.imdb.com/search/title/?groups=top_250&sort=user_rating). And enter the required details in the below input...<i>ThanK YoU ❣</i></p>
+<div className="content">
+        <h4 className="text-dark font-italic "> HELLO!</h4>
+        <p className="lead1" > If you want to add 6th rating movie to the list above, just visit our official website (https://www.imdb.com/search/title/?groups=top_250&sort=user_rating). And enter the required details in the below input...<i>ThanK YoU ❣</i></p>
     </div>
 
 
@@ -144,8 +145,9 @@ export default function App() {
           placeholder="Movie Stars/Actors"
         />
 
-        <button onClick={addMovie}>Add Movie</button>
+       
       </div>
+      <button className='btn btn1 btn-outline-dark w-75 ml-5 ' onClick={addMovie}>Add Movie</button>
       </div>
     );
   }
@@ -155,17 +157,17 @@ function Movie({ name,profile,rating,description,director,stars }){
   return(
 
 
-<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
-  <div class="col mb-4">
-    <div class="card">
-      <img src={profile} class="card-img-top img-fluid img" alt="IMG"/>
-      <div class="card-body">
-      <h5 class="card-title text-center">{name}</h5>
-      <p class="card-text"><span class="h5"> Rating : </span> <span class="pfont"> ⭐{rating}</span> </p>
+<div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
+  <div className="col mb-4">
+    <div className="card">
+      <img src={profile} className="card-img-top img-fluid img" alt="IMG"/>
+      <div className="card-body">
+      <h5 className="card-title text-center">{name}</h5>
+      <p className="card-text"><span className="h5"> Rating : </span> <span className="pfont"> ⭐{rating}</span> </p>
                     
-    <p class="card-text"><span class="h5"> Description: </span> <span class="pfont"> {description}</span> </p>
-    <p class="card-text"><span class="h5">  Director: </span> <span class="pfont"> {director}</span> </p>   
-        <p class="card-text"><span class="h5"> Stars: </span> <span class="pfont"> {stars}</span> </p>
+    <p className="card-text"><span className="h5"> Description: </span> <span className="pfont"> {description}</span> </p>
+    <p className="card-text"><span className="h5">  Director: </span> <span className="pfont"> {director}</span> </p>   
+        <p className="card-text"><span className="h5"> Stars: </span> <span className="pfont"> {stars}</span> </p>
         <Counter />         
    
    
@@ -184,8 +186,8 @@ function Counter() {
   const [unlike, setunLike]= useState(0);
   return(
   <div>
-    <button type="button" class="btn btn1 btn-outline-success" onClick={()=> setLike(like+1)}>👍{like}</button>
-<button type="button" class="btn btn-outline-danger" onClick={()=> setunLike(unlike+1)}>👎{unlike}</button>
+    <button type="button" className="btn btn1 btn-outline-success" onClick={()=> setLike(like+1)}>👍{like}</button>
+<button type="button" className="btn btn-outline-danger" onClick={()=> setunLike(unlike+1)}>👎{unlike}</button>
     
   </div>
   );

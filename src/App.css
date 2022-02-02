@@ -92,7 +92,7 @@ hr{
 .movie_form input::placeholder {
   color: rgb(117, 117, 117);
 }
-.movie_form button {
+/* .movie_form button {
   background-color: #1c63b3;
   border: none;
   padding: 12px;
@@ -103,7 +103,7 @@ hr{
 }
 .movie_form button:hover {
   background-color: #4f5255;
-}
+} */
 
 .lead1 {
   text-align: center;
