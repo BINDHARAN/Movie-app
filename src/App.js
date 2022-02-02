@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function App() {
   const user=[
     {
-      profile:"https://www.pinkvilla.com/imageresize/jai_bhim_twiiter_review_1.jpg?width=752&format=webp&t=pvorg",
+      profile:"https://www.quirkybyte.com/wp-content/uploads/2021/11/Jai_bhim_2_vkgnOcidibacj.jpeg",
       name:"1. Jai Bhim(2021)",
       rating:"9.3",
       description:"When a tribal man is arrested for a case of alleged theft, his wife turns to a lawer to help bring justice",
@@ -14,7 +14,7 @@ export default function App() {
       stars:"Suriya,Lijo Mol Jose,Manikandan,Rajsha vijayan"
     },
     {
-      profile:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6MnYgy3k47M3f-3Gk4oG5Pd7EvTcfj4F1Sw&usqp=CAU",
+      profile:"https://rukminim1.flixcart.com/image/416/416/poster/h/m/z/posterskart-the-shawshank-redemption-poster-pksr01-medium-original-imaebcuhbuhfhryb.jpeg?q=70",
       name:"2. The Shawshank Redemption",
       rating:"9.3",
       description:"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency",
@@ -48,16 +48,39 @@ export default function App() {
       stars:"AL Pacino,Robert De Niro,Robert Duvall,Diane Keaton"
     },
   ]
+  const [movies, setMovies] = useState( user);
+
+  const [movieName, setMovieName] = useState("");
+  const [moviePoster, setMoviePoster] = useState("");
+  const [movieRating, setMovieRating] = useState("");
+  const [movieDes, setMovieDes] = useState("");
+  const [moviestars, setMovieStars] = useState("");
+  const [moviedirector, setMovieDirector] = useState("");
+
+  const addMovie = () => {
+   
+    const newMovie = {
+      name: movieName,
+      profile: moviePoster,
+      rating: movieRating,
+      description: movieDes,
+    stars:moviestars,
+    director:moviedirector
+    };
+
+   
+    setMovies([...movies, newMovie]);
+  }
     return (
       <div className="App">
        
-    <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-dark bg-dark">
       <img src='https://cdn4.iconfinder.com/data/icons/socialmediaicons_v120/48/imdb.png' alt='logo'></img>
-  <span class='navbar-brand'>IMDb</span>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="Text" placeholder="Search" aria-label="Search" />
-    <button class="btn btn-outline-info">Search   </button>
-  </form>
+     <span class='navbar-brand'>IMDb</span>
+      <form class="form-inline">
+     <input class="form-control mr-sm-2" type="Text" placeholder="Search" aria-label="Search" />
+     <button class="btn btn-outline-info">Search   </button>
+       </form>
 </nav>
 
     <div class="content">
@@ -65,44 +88,93 @@ export default function App() {
         <p class="lead" >Here are IMDb "Top 5" Movies(Sorted by IMDb Rating Descending)...</p>
     </div>
 
+  
+      <div class="row">
+
+{movies.map((nm) => ( 
 
 
-        {user.map((nm) => (
-          <Movie name={nm.name} profile={nm.profile} rating={nm.rating} description={nm.description} director={nm.director} stars={nm.stars} />
-        ))}
+<Movie name={nm.name} profile={nm.profile} rating={nm.rating} description={nm.description} director={nm.director} stars={nm.stars} />
+))}
+</div>
+<hr></hr>
 
+<div class="content">
+        <h4 class="text-dark font-italic "> HELLO!</h4>
+        <p class="lead1" > If you want to add 6th rating movie to the list above, just visit our official website (https://www.imdb.com/search/title/?groups=top_250&sort=user_rating). And enter the required details in the below input...<i>ThanK YoU ❣</i></p>
+    </div>
+
+
+
+
+<div className="movie_form">
+      <input
+  
+    type="text"
+    onChange={(event) => setMoviePoster(event.target.value)}
+    placeholder="Movie Poster(url)" />
+        <input
+       
+          type="text"
+          placeholder="Movie Name"
+          onChange={(event) => setMovieName(event.target.value)}
+        />
+        <input
+         
+          type="number"
+          onChange={(event) => setMovieRating(event.target.value)}
+          placeholder="Movie Rating"
+        />
+        <input
+         
+          type="text"
+          onChange={(event) => setMovieDes(event.target.value)}
+          placeholder="Movie Description"
+        />
+          <input
+        
+            type="text"
+            onChange={(event) => setMovieDirector(event.target.value)}
+            placeholder="Movie Director"
+          />
+        <input
+        
+          type="text"
+          onChange={(event) => setMovieStars(event.target.value)}
+          placeholder="Movie Stars/Actors"
+        />
+
+        <button onClick={addMovie}>Add Movie</button>
+      </div>
       </div>
     );
   }
 
+
 function Movie({ name,profile,rating,description,director,stars }){
   return(
-<div >
 
 
-     <div class="card mb-3 mx-auto my-3">
-          <div class="row no-gutters">
-              <div class="col-md-4">
-                  <img src={profile} class="img rounded img-thumbnail " alt="img" />
-              </div>
-              <div class="col-md-8">
-                  <div class="card-body">
-                  <h5 class="card-title text-center">{name}</h5>
-                      <p class="card-text"><span class="h5"> Rating : </span> <span class="pfont"> ⭐{rating}</span> </p>
+<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
+  <div class="col mb-4">
+    <div class="card">
+      <img src={profile} class="card-img-top img-fluid img" alt="IMG"/>
+      <div class="card-body">
+      <h5 class="card-title text-center">{name}</h5>
+      <p class="card-text"><span class="h5"> Rating : </span> <span class="pfont"> ⭐{rating}</span> </p>
                     
-                      <p class="card-text"><span class="h5"> Description: </span> <span class="pfont"> {description}</span> </p>
-                      <p class="card-text"><span class="h5">  Director: </span> <span class="pfont"> {director}</span> </p>
-                    
-                      <p class="card-text"><span class="h5"> Stars: </span> <span class="pfont"> {stars}</span> </p>
-                          
-      <Counter />
-                  </div>
-              </div>
-          </div>
-      </div>
-      
-      <hr className='hr'></hr>
-</div>
+    <p class="card-text"><span class="h5"> Description: </span> <span class="pfont"> {description}</span> </p>
+    <p class="card-text"><span class="h5">  Director: </span> <span class="pfont"> {director}</span> </p>   
+        <p class="card-text"><span class="h5"> Stars: </span> <span class="pfont"> {stars}</span> </p>
+        <Counter />         
+   
+   
+ </div> 
+ </div> 
+ </div> 
+
+    </div>
+
 
   )
 }
@@ -119,7 +191,3 @@ function Counter() {
   );
 }
 
-
-
-
- 
