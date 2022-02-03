@@ -3,6 +3,8 @@ import { useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge';
 
 
 export default function App() {
@@ -173,11 +175,11 @@ function Movie({ name, profile, rating,description, director, stars }) {
   );
 }
 const Des= ({props}) => {
-  const [showText, setShowText] = useState(true);
+  const [showText, setShowText] = useState(false);
   return (
     <div>
-      
-        <div className="toggle"> <Switch defaultChecked onClick={() => setShowText(!showText)}  /><span className="h5"> Description: </span> </div>
+        {/* <Button variant="contained"  className="toggle-button" >    </Button> */}
+        <div> <Switch defaultChecked onClick={() => setShowText(!showText)}  /><span className="h5"> Description: </span> </div>
          
       {showText && <p className="pfont"> {props} </p>}
    
@@ -191,13 +193,22 @@ function Counter() {
   const [unlike, setunLike] = useState(0);
   return (
     <div className="buttongroup">
-       <Button variant="contained" className="btn1 "
-        onClick={() => setLike(like + 1)} > 👍{like}  </Button>
-      <Button variant="outlined" color="error" className="btn"
-        onClick={() => setunLike(unlike + 1)}>
-      👎{unlike}
-</Button>
+      <IconButton color="primary" className="btn1"
+        onClick={() => setLike(like + 1)}>
+        <Badge badgeContent={like} color="secondary">
+          👍
+        </Badge>
 
+      </IconButton>
+      <IconButton color="primary" className="btn"
+        onClick={() => setunLike(unlike + 1)}>
+        <Badge badgeContent={unlike} color="error">
+          👎
+        </Badge>
+
+      </IconButton>
+
+  
     </div>
   );
 }
