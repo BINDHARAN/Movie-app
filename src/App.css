@@ -1,19 +1,20 @@
-
-.navbar-brand{
-  margin-left: 0;
-  font-family: 'Pacifico', cursive;
+.img {
+  float: left;
+}
+.title {
+  font-family: "Pacifico", cursive;
+  font-size: 30px;
+  margin-left: 600px;
 }
 
 .content {
   padding: 20px;
 }
 
-
 .img {
- width: 100%;
-  height:auto;
-object-fit: cover;
- 
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .img:hover {
@@ -23,15 +24,17 @@ object-fit: cover;
 
 .card {
   padding: 10px;
- 
+  font-size: 20px;
+
   background-color: rgb(250, 248, 248);
+  text-align: justify;
 }
 
 .card-title {
- 
-font-family: 'Rubik Beastly', cursive;
-   font-size: 25px;
+  font-family: "Rubik Beastly", cursive;
+  font-size: 25px;
   letter-spacing: 2px;
+  margin: opx;
 }
 
 .lead {
@@ -40,8 +43,9 @@ font-family: 'Rubik Beastly', cursive;
   margin-left: 50px;
 }
 
-.card-text>.h5 {
-  font-family: 'Pacifico', cursive;
+.h5,
+.card-text > .h5 {
+  font-family: "Pacifico", cursive;
   font-style: oblique;
   font-weight: bolder;
 }
@@ -51,28 +55,23 @@ font-family: 'Rubik Beastly', cursive;
   font-style: initial;
 }
 
-.card-text{
-  margin-top: 40px;
+.buttongroup {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
 }
 
-
-.btn{
-  width: 20%;
-  margin-left: 10px;
-}
-
-.btn1{
+.btn1 {
   margin-left: 30%;
-  
 }
 
-
-hr{
+hr {
   height: 5px;
   border: 2px solid black;
   border-radius: 10px;
-  background:linear-gradient(to left, blue,red);
- }
+  background: linear-gradient(to left, blue, red);
+}
 
 .movie_form {
   display: flex;
@@ -84,35 +83,25 @@ hr{
 .movie_form input {
   padding: 10px;
   border-radius: 6px;
-  outline: none;
-  border: 1px solid rgba(54, 53, 53, 0.897);
   font-size: 18px;
-  color: #0a7cfd;
+  color: #242c35;
 }
-.movie_form input::placeholder {
-  color: rgb(117, 117, 117);
-}
+
 .button {
-  
- 
   padding: 12px;
   border-radius: 20px;
- display: flex;
-justify-content: center;
-align-items: center;
-margin-left: 140px;
- width:80%;
-  
 }
-/* .movie_form button:hover {
-  background-color: #4f5255;
-} */
 
 .lead1 {
   text-align: center;
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   text-shadow: 2px 0px 8px rgb(214, 204, 204);
   margin-left: 50px;
   letter-spacing: 2px;
   font-size: 25px;
+}
+.toggle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
