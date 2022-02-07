@@ -59,6 +59,8 @@
   margin-left: 50px;
 }
 
+
+
 .card-text > .h5 {
   font-family: "Pacifico", cursive;
   font-style: oblique;
@@ -118,13 +120,17 @@ hr {
 }
 
 .lead1 {
-  text-align: center;
+  
   font-family: "Pacifico", cursive;
   text-shadow: 2px 0px 8px rgb(214, 204, 204);
-  margin-left: 50px;
+  margin-left: 40px;
   letter-spacing: 2px;
   font-size: 25px;
+  text-align: justify;
+  
 }
+
+
 .toggle {
   display: flex;
   justify-content: flex-start;
@@ -201,4 +207,36 @@ ul {
   margin-top: 190px;
   font-size: xx-large;
   font-family: var(--font-serif);
+}
+
+@media only screen and (max-width: 800px) {
+
+  .title{
+    margin-left:270px;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .title{
+    margin-left:200px;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .title{
+    margin-left:100px;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .lead1{
+    margin-left:10%;
+    font-size: 15px;
+  }
 }
