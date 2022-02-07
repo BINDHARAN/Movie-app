@@ -150,13 +150,12 @@ hr {
   margin-bottom: 40px;
 }
 .total-colorbox {
-  background: linear-gradient(90deg, #4394b9, #d5cce6);
   height: 100vh;
 }
 
 .color-btn {
   margin-top: 70px;
-  font-size: 1rem;
+   font-size: 1rem;
   color: #000;
   background: none;
   border: 2px solid var(--color-bg);
@@ -166,13 +165,15 @@ hr {
   cursor: pointer;
   color: #223458;
   font-family: var(--font);
-  transition: all 0.2s ssssease-out;
+  transition: all 0.2s ssssease-out; 
+  
 }
 .color-btn:hover {
   color: var(--color-bg);
   border: 2px dashed var(--color-bg);
   box-shadow: 0 0 0 4px var(--color-text);
   background: var(--color-text);
+  font-family: var(--font-serif);
 }
 .color-btn:active {
   transform: scale(1.1);
