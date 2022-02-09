@@ -83,7 +83,7 @@ export function TicTacToe() {
 
         {drawn ? <h2>Match : 🤝{drawn}</h2> : ""}
 
-        <div className="restart-btn"><Button variant="contained" onClick={() => setBoard([null, null, null, null, null, null, null, null, null])}>Restart</Button></div>
+        <div className="restart-btn"><Button variant="contained" onClick={() => setBoard([null, null, null, null, null, null, null, null, null])  }>Restart</Button></div>
 
     </div>
     );
