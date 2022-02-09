@@ -13,7 +13,7 @@ export function EditMovie({movies,setMovies}) {
 
   const history = useHistory()
   const [movieName, setMovieName] = useState(movieList.name);
-  const [moviePoster, setMoviePoster] = useState(movieList. profile);
+  const [moviePoster, setMoviePoster] = useState(movieList.profile);
   const [movieRating, setMovieRating] = useState(movieList.rating);
   const [movieDes, setMovieDes] = useState(movieList.description);
   const [moviestars, setMovieStars] = useState(movieList.director);
