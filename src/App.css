@@ -156,7 +156,7 @@ font-size: 25px;
 }
 .coloritems {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   gap: 10px;
   margin-bottom: 40px;
@@ -164,33 +164,6 @@ font-size: 25px;
 
 .total-colorbox {
   height: 100vh;
-}
-
-.color-btn {
-  margin-top: 70px;
-  font-size: 1rem;
-  color: #000;
-  background: none;
-  border: 2px solid var(--color-bg);
-  padding: 5px;
-  border-radius: 4px;
-  font-weight: 500;
-  cursor: pointer;
-  color: #223458;
-  font-family: var(--font);
-  transition: all 0.2s ssssease-out;
-}
-
-.color-btn:hover {
-  color: var(--color-bg);
-  border: 2px dashed var(--color-bg);
-  box-shadow: 0 0 0 4px var(--color-text);
-  background: var(--color-text);
-  font-family: var(--font-serif);
-}
-
-.color-btn:active {
-  transform: scale(1.1);
 }
 
 .addcolors {
@@ -225,12 +198,5 @@ font-size: 25px;
     margin-top: 80px;
     font-size: large;
   }
-
-  .color-btn {
-    font-size: 0.5 rem;
-    padding: 0px;
-    border-radius: 4px;
-    font-weight: 200;
-    color: #223458;
-  }
+ 
 }
