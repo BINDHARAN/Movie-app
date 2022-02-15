@@ -14,16 +14,27 @@ import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import { MovieList } from "./MovieList.1";
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 
 export default function App() {
   const [movies, setMovies] = useState(list);
   const history = useHistory();
 
-  return (
+  const [mode,setMode]=useState("light")
+  const theme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
 
-    <div className="App">
+  return (
+    <ThemeProvider theme={theme}>
+<Paper elevation={4} style={{borderRadius:"0px", minHeight:"100vh"}} >
+ <div className="App">
 
       <AppBar position="static">
         <Toolbar>
@@ -33,6 +44,12 @@ export default function App() {
           <Button color="inherit" onClick={() => history.push("/movies/add")}>Add Movies</Button>
           <Button color="inherit" onClick={() => history.push("/color-game")}>Color Game</Button>
           <Button color="inherit" onClick={() => history.push("/TicTacToe")}>TicTacToe</Button>
+          <Button color="inherit" 
+          style={{marginLeft:"auto"}}
+              startIcon = {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+              onClick={()=>setMode(mode==="light"? "dark" : "light")} >
+              {mode==="light"? "dark" : "light"} Mode
+         </Button>
         </Toolbar>
       </AppBar>
 
@@ -80,10 +97,10 @@ export default function App() {
 
         <Route path="**"> <NotFound /> </Route>
       </Switch>
-    </div>
-
+     </div>
+    </Paper>  
+  </ThemeProvider>
   );
 }
-
 
 

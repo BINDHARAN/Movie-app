@@ -42,32 +42,36 @@
 }
 
 .cardtitle {
-  font-family: 'Rubik Beastly', cursive;
-  font-size: 22px;
-  letter-spacing: 1px;
+  font-family: 'Chicle', cursive;
+font-size: 25px;
   margin: 2px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
 .sub-title,
 .rating {
-  font-family: 'Pacifico', cursive;
-  font-style: oblique;
+  font-family: 'Carter One', cursive;
   font-weight: bolder;
+  letter-spacing: 2px;
 }
 
 .description {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Carter One', cursive;
   font-style: oblique;
+  letter-spacing: 2px;
   font-weight: 1000;
   display: flex;
   align-items: center;
   flex-direction: row;
+
 }
 
 .primary {
-  color: rgb(30, 5, 90);
-  font-size: large;
+
+  font-size:xx-large;
 }
 
 .pfont {
@@ -112,7 +116,6 @@
 }
 .movies-page {
   margin-top: 40px;
-  margin-bottom: 20px;
 }
 
 .movie_form {

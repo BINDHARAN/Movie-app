@@ -13,7 +13,7 @@ export function AddColor() {
       <div className="coloritems">
 
         <input style={sytles} value={color} className="colorbox-input" placeholder="Enter a color" onChange={(event) => setColor(event.target.value)} />
-        <button onClick={() => setColorList([...colorlist, color])} className="color-btn">Add Color</button>
+        <button onClick={() => setColorList([...colorlist, color])} className="color-btn">Add</button>
 
       </div>
       {colorlist.map((clr, index) => <ColorBox key={index} color={clr} />)}
