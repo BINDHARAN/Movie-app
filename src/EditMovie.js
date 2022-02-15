@@ -13,13 +13,12 @@ export function EditMovie({movies,setMovies}) {
 
   const history = useHistory()
   const [movieName, setMovieName] = useState(movieList.name);
-  const [moviePoster, setMoviePoster] = useState(movieList. profile);
+  const [moviePoster, setMoviePoster] = useState(movieList.profile);
   const [movieRating, setMovieRating] = useState(movieList.rating);
   const [movieDes, setMovieDes] = useState(movieList.description);
   const [moviestars, setMovieStars] = useState(movieList.director);
   const [moviedirector, setMovieDirector] = useState(movieList.stars);
   const [movietrailer, setMovieTrailer] = useState(movieList.trailer);
-
   return (
     <div>
       <div className="movie_form">
@@ -60,8 +59,6 @@ export function EditMovie({movies,setMovies}) {
           onChange={(event) => setMovieTrailer(event.target.value)} />
 
         <Button variant="contained" className="button" color="success" onClick={()=>{
-           
-
            const updatedMovie = {
              name: movieName,
              profile: moviePoster,

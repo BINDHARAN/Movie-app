@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Allerta+Stencil|Source+Code+Pro:900");
+@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil|Source+Code+Pro:900');
 
 /* detail root variables */
 :root {
-  --font-serif: "Allerta Stencil", sans-serif;
-  --font-mono: "Source Code Pro", monospace;
+  --font-serif: 'Allerta Stencil', sans-serif;
+  --font-mono: 'Source Code Pro', monospace;
   --color-text: #efeee7;
   --color-bg: #223458;
 }
@@ -13,94 +13,106 @@
   margin: 0;
   padding: 0;
 }
-.error-img{
-width: 65%;
-height: 500px;
+.error-img {
+  width: 65%;
+  height: 500px;
 }
-
-/* .img {
-  float: left;
-}
-.title {
-  font-family: "Pacifico", cursive;
-  font-size: 30px;
-  margin-left: 600px;
-} */
 
 .img {
-  width: 100%;
+  width: 400px;
   height: auto;
   object-fit: cover;
 }
 
 .img:hover {
-  transform: translateY(2px);
-  box-shadow: 2px 2px 20px 2px rgb(34, 32, 31);
+  transform: translateY(1px);
+  box-shadow: 2px 2px 20px 2px rgb(53, 51, 51);
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
 }
 
-.card {
-  padding: 10px;
+.cards {
+  width: 400px;
   font-size: 20px;
-
-  background-color: rgb(250, 248, 248);
-  text-align: justify;
+  height: min-content;
 }
 
-.card-title {
-  font-family: "Rubik Beastly", cursive;
-  font-size: 25px;
-  letter-spacing: 2px;
-  margin: opx;
+.cardtitle {
+  font-family: 'Rubik Beastly', cursive;
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin: 2px;
+  text-align: center;
 }
 
-.lead {
-  font-family: monospace;
-  text-shadow: 2px 0px 8px rgb(235, 38, 38);
-  margin-left: 50px;
-}
-.card-text > .h5,.rating {
-  font-family: "Pacifico", cursive;
+.sub-title,
+.rating {
+  font-family: 'Pacifico', cursive;
   font-style: oblique;
   font-weight: bolder;
 }
 
 .description {
-  font-family: "Pacifico", cursive;
+  font-family: 'Pacifico', cursive;
   font-style: oblique;
   font-weight: 1000;
   display: flex;
-  align-items: center;  
+  align-items: center;
   flex-direction: row;
 }
 
 .primary {
   color: rgb(30, 5, 90);
   font-size: large;
- }
+}
 
 .pfont {
   font-family: var(--font-serif);
   text-align: justify;
-  
 }
 .pfont-info {
   font-family: var(--font-serif);
   text-align: center;
 }
 
-.star-info{
+.star-info {
   display: flex;
 }
 
-.infoOutlineIcon{
+.infoOutlineIcon {
   cursor: pointer;
 }
 
 .button-group {
   display: flex;
-  justify-content: space-between;
-  align-content: center;
   align-items: center;
+}
+
+.video {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.video-title {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  padding: 10px;
+  font-weight: 400;
+}
+.video-card {
+  margin-bottom: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.movies-page {
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .movie_form {
@@ -153,7 +165,7 @@ height: 500px;
 
 .color-btn {
   margin-top: 70px;
-   font-size: 1rem;
+  font-size: 1rem;
   color: #000;
   background: none;
   border: 2px solid var(--color-bg);
@@ -163,8 +175,7 @@ height: 500px;
   cursor: pointer;
   color: #223458;
   font-family: var(--font);
-  transition: all 0.2s ssssease-out; 
-  
+  transition: all 0.2s ssssease-out;
 }
 
 .color-btn:hover {
@@ -184,76 +195,39 @@ height: 500px;
   justify-content: center;
 }
 
-.list {
-  margin-top: 20px;
-}
-
-ul {
-  list-style-type: none;
-  display: flex;
-  gap: 20px;
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  font-weight: 400;
-  margin-left: 20px;
-}
-
 .home {
   margin-top: 190px;
   font-size: xx-large;
   font-family: var(--font-serif);
-}
-
-/* @media only screen and (max-width: 800px) {
-  .title{
-    margin-left:270px;
-    font-size: 15px;
-  }
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
-  .title{
-    margin-left:200px;
-    font-size: 15px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-
-  .title{
-    margin-left:100px;
-    font-size: 15px;
-  }
-} */
-
-@media only screen and (max-width: 600px) {
-    .error-img{
-  width: 100%;
-  height: auto;
+  .error-img {
+    width: 100%;
+    height: auto;
   }
 }
 @media only screen and (max-width: 500px) {
-
   ul {
     list-style-type: disc;
     gap: 2px;
     font-size: 0.7rem;
     font-weight: 300;
     margin-left: 8px;
-    flex-direction:column;
-  margin-left: 30px;
-    }
-    .home {
-      margin-top: 80px;
-      font-size: large;
-    }
+    flex-direction: column;
+    margin-left: 30px;
+  }
+  .home {
+    margin-top: 80px;
+    font-size: large;
+  }
 
-    .color-btn {
-       font-size: 0.5 rem;
-      padding: 0px;
-      border-radius: 4px;
-      font-weight: 200;
-      color: #223458;
-    }
+  .color-btn {
+    font-size: 0.5 rem;
+    padding: 0px;
+    border-radius: 4px;
+    font-weight: 200;
+    color: #223458;
+  }
 }
-

@@ -8,14 +8,14 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useHistory } from "react-router-dom";
 import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from '@mui/material/Tooltip';
-import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
-import ThumbDownOutlinedIcon from '@mui/icons-material/ThumbDownOutlined';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
-export function MovieList({ movies,setMovies }) {
-  const history=useHistory()
+export function MovieList({ movies, setMovies }) {
+  const history = useHistory()
 
   return (
-    <div className="row">
+    <div className="card-container">
       {movies.map(
         ({ name, profile, rating, description, director, stars }, index) => (
           <Movie
@@ -28,80 +28,78 @@ export function MovieList({ movies,setMovies }) {
             stars={stars}
             // delete
             deleteButton={
+
               <Tooltip title="Delete">
-  
-  <IconButton aria-label="delete"
-                onClick={()=>{
-                    const copyMovies=[...movies] 
-             copyMovies.splice(index,1)
-                setMovies(copyMovies)
-             }}
-             color="error">
-                <DeleteIcon />
-              </IconButton>
-</Tooltip>
-            
+
+                <IconButton aria-label="delete"
+                  style={{ marginLeft: "auto" }}
+                  onClick={() => {
+                    const copyMovies = [...movies]
+                    copyMovies.splice(index, 1)
+                    setMovies(copyMovies)
+                  }}
+                  color="error">
+                  <DeleteIcon />
+                </IconButton>
+              </Tooltip>
+
             }
             editButton={
-         <Tooltip title="Edit">
-            <IconButton aria-label="edit button"
-                          onClick={()=>  history.push(`./movies/edit/${index}`)}
-                       color="secondary">
-                          <EditIcon />
-              </IconButton>
-            
-              
-            </Tooltip>
-              
-              
+              <Tooltip title="Edit">
+                <IconButton aria-label="edit button"
+                  onClick={() => history.push(`./movies/edit/${index}`)}
+                  color="secondary">
+                  <EditIcon />
+                </IconButton>
+              </Tooltip>
+
             }
             id={index}
-       
-        />
+
+          />
         )
       )}
     </div>
   );
 }
-function Movie({ name, profile, rating, description, director, stars,deleteButton,editButton,id}) {
+function Movie({ name, profile, rating, description, director, stars, deleteButton, editButton, id }) {
   const styles = {
     color: rating > 9 ? "green" : "red",
   };
-  const history=useHistory()
+  const history = useHistory()
   return (
-    <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
-      <div className="col mb-4">
-        <div className="card">
-          <img src={profile} className="card-img-top img-fluid img" alt="IMG" />
-          <div className="card-body">           
-              {/* title with info button and logic */}
-       <h5 className="card-title text-center">{name} 
-       <Tooltip title="Info">
-  <IconButton>
-  <InfoOutlinedIcon className="infoOutlineIcon" onClick={() => history.push(`/movies/${id}`)}/>
-  </IconButton>
-</Tooltip>
-      </h5> 
-               <p className="card-text">
-                <span className="rating"> Rating : </span>
-                <span className="pfont" style={styles}>⭐{rating}</span>
-               </p>
-          <div className="card-text">
-              <Des props={description} />
-            </div>
-            <p className="card-text">
-              <span className="h5"> Director: </span>
-              <span className="pfont"> {director}</span>
-            </p>
-            <p className="card-text">
-              <span className="h5">Stars: </span>
-              <span className="pfont">{stars}</span>
-            </p>
-            <Counter deleteBtn={deleteButton} editButton={editButton}/> 
-          </div>
+    <Card className="cards">
+
+      <img src={profile} className="img" alt="IMG" />
+      <CardContent>
+        <div className="cardtitle"> <span>{name} </span>
+          <Tooltip title="Info">
+            <IconButton>
+              <InfoOutlinedIcon className="infoOutlineIcon" onClick={() => history.push(`/movies/${id}`)} />
+            </IconButton>
+          </Tooltip>
         </div>
-      </div>
-    </div>
+        <div className="cardtext">
+          <span className="rating"> Rating : </span>
+          <span className="pfont" style={styles}>⭐{rating}</span>
+        </div>
+        <div className="cardtext">
+          <Des props={description} />
+        </div>
+        <div className="cardtext">
+          <span className="sub-title"> Director: </span>
+          <span className="pfont"> {director}</span>
+        </div>
+        <div className="cardtext">
+          <span className="sub-title">Stars: </span>
+          <span className="pfont">{stars}</span>
+        </div>
+      </CardContent>
+
+      <Counter deleteBtn={deleteButton} editButton={editButton} />
+
+
+    </Card>
   );
 }
 const Des = ({ props }) => {
@@ -111,15 +109,15 @@ const Des = ({ props }) => {
       <div className="description">
         <span> Description: </span>
         <IconButton color="primary" onClick={() => setShowText(!showText)}>
-        
-          <span className="primary">{showText ? <ArrowDropUpIcon />: <ArrowDropDownIcon />}</span>
+
+          <span className="primary">{showText ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}</span>
         </IconButton>
       </div>
       {!showText ? <p className="pfont"> {props} </p> : ""}
     </div>
   );
 };
-function Counter({deleteBtn,editButton}) {
+function Counter({ deleteBtn, editButton }) {
   const [like, setLike] = useState(0);
   const [unlike, setunLike] = useState(0);
   return (
@@ -130,20 +128,21 @@ function Counter({deleteBtn,editButton}) {
         onClick={() => setLike(like + 1)}
       >
         <Badge badgeContent={like} color="secondary">
-          <ThumbUpOutlinedIcon />
+          👍
         </Badge>
       </IconButton>
-      {/* delete btn and edit btn */}
-      {deleteBtn} {editButton}
+
       <IconButton
         color="primary"
         className="btn"
         onClick={() => setunLike(unlike + 1)}
       >
         <Badge badgeContent={unlike} color="error">
-      <ThumbDownOutlinedIcon />
-        </Badge> 
+          👎
+        </Badge>
       </IconButton>
+      {/* delete btn and edit btn */}
+      {deleteBtn} {editButton}
     </div>
   );
 }
