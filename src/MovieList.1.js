@@ -1,23 +1,44 @@
-import { useState } from "react";
+import { useState,useEffect  } from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from '@mui/icons-material/Delete';
 import Badge from "@mui/material/Badge";
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import { useHistory } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from '@mui/material/Tooltip';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
-export function MovieList({ movies, setMovies }) {
+export const api="https://6209ed8f92946600171c55c2.mockapi.io/movies"
+
+export function MovieList() {
   const history = useHistory()
+  const [movies, setMovies] = useState([]);
+
+  const getMovies=()=>{
+
+    fetch(`${api}`,{
+      method: "GET"
+    })
+    .then(data=>data.json())
+    .then((movies)=>setMovies(movies))
+    
+  }
+
+useEffect(() =>getMovies(),[]);
+
+const deleteMovie=(id)=>{
+  fetch(`${api}/${id}`,{
+    method: "DELETE"
+  }).then(()=>getMovies())
+}
 
   return (
     <div className="card-container">
       {movies.map(
-        ({ name, profile, rating, description, director, stars }, index) => (
+        ({ name, profile, rating, description, director, stars,id }, index) => (
           <Movie
             key={index}
             name={name}
@@ -34,9 +55,7 @@ export function MovieList({ movies, setMovies }) {
                 <IconButton aria-label="delete"
                   style={{ marginLeft: "auto" }}
                   onClick={() => {
-                    const copyMovies = [...movies]
-                    copyMovies.splice(index, 1)
-                    setMovies(copyMovies)
+                    deleteMovie(id)
                   }}
                   color="error">
                   <DeleteIcon />
@@ -47,14 +66,14 @@ export function MovieList({ movies, setMovies }) {
             editButton={
               <Tooltip title="Edit">
                 <IconButton aria-label="edit button"
-                  onClick={() => history.push(`./movies/edit/${index}`)}
+                  onClick={() => history.push(`./movies/edit/${id}`)}
                   color="secondary">
                   <EditIcon />
                 </IconButton>
               </Tooltip>
 
             }
-            id={index}
+            id={id}
 
           />
         )

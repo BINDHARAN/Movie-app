@@ -4,7 +4,7 @@ import { TicTacToe } from "./TicTacToe";
 import { AddColor } from "./AddColor";
 import { NotFound } from "./NotFound";
 import { Msg } from "./Msg";
-import { list } from "./list";
+// import { list } from "./list";
 import { DisplayMovieDetails } from "./DisplayMovieDetails";
 import { AddMovie } from "./AddMovie";
 import { EditMovie } from "./EditMovie";
@@ -21,7 +21,8 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 
 export default function App() {
-  const [movies, setMovies] = useState(list);
+ 
+
   const history = useHistory();
 
   const [mode,setMode]=useState("light")
@@ -60,26 +61,26 @@ export default function App() {
 
         <Route path="/movies/add">
           <div className="movies-page">
-            <AddMovie movies={movies} setMovies={setMovies} />
+            <AddMovie  />
           </div>
         </Route>
 
         <Route path="/movies/edit/:id">
           <div className="movies-page">
-            <EditMovie movies={movies} setMovies={setMovies} />
+            <EditMovie  />
           </div>
         </Route>
 
         <Route path="/movies/:id">
           <div className="movies-page">
-            <DisplayMovieDetails list={list} />
+            <DisplayMovieDetails  />
           </div>
         </Route>
 
 
         <Route path="/movies">
           <div className="movies-page">
-            <MovieList movies={movies} setMovies={setMovies} />
+            <MovieList  />
           </div>
         </Route>
 
