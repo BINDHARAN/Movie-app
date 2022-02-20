@@ -18,7 +18,7 @@ useEffect(() => {
     fetch(`${api}/${id}`)
   .then(data=>data.json())
   .then((movies)=>setMovie(movies))
-   },[]);   
+   },[id]);   
   
 return ( 
     <div>{movie ? <MovieForm movie={movie} /> : <h2 className="edit-loadmsg"> Loading... <CircularProgress /></h2>} </div>

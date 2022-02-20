@@ -20,7 +20,7 @@ export function DisplayMovieDetails() {
     fetch(`${api}/${id}`)
   .then(data=>data.json())
   .then((movies)=>setMovie(movies))
-   },[]);   
+   },[id]);   
   
 
 
