@@ -18,14 +18,14 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-
+// import Recipe from "./recipe";
 
 export default function App() {
- 
+
 
   const history = useHistory();
 
-  const [mode,setMode]=useState("light")
+  const [mode, setMode] = useState("light")
   const theme = createTheme({
     palette: {
       mode: mode,
@@ -34,73 +34,80 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-<Paper elevation={4} style={{borderRadius:"0px", minHeight:"100vh"}} >
- <div className="App">
+      <Paper elevation={4} style={{ borderRadius: "0px", minHeight: "100vh" }} >
+        <div className="App">
 
-      <AppBar position="static">
-        <Toolbar>
+          <AppBar position="static">
+            <Toolbar>
 
-          <Button color="inherit" onClick={() => history.push("/")}>Home</Button>
-          <Button color="inherit" onClick={() => history.push("/movies")}>Movies</Button>
-          <Button color="inherit" onClick={() => history.push("/movies/add")}>Add Movies</Button>
-          <Button color="inherit" onClick={() => history.push("/color-game")}>Color Game</Button>
-          <Button color="inherit" onClick={() => history.push("/TicTacToe")}>TicTacToe</Button>
-          <Button color="inherit" 
-          style={{marginLeft:"auto"}}
-              startIcon = {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-              onClick={()=>setMode(mode==="light"? "dark" : "light")} >
-              {mode==="light"? "dark" : "light"} Mode
-         </Button>
-        </Toolbar>
-      </AppBar>
+              <Button color="inherit" onClick={() => history.push("/")}>Home</Button>
+              <Button color="inherit" onClick={() => history.push("/movies")}>Movies</Button>
+              <Button color="inherit" onClick={() => history.push("/movies/add")}>Add Movies</Button>
+              <Button color="inherit" onClick={() => history.push("/color-game")}>Color Game</Button>
+              <Button color="inherit" onClick={() => history.push("/TicTacToe")}>TicTacToe</Button>
+              {/* <Button color="inherit" onClick={() => history.push("/recipe")}>recipe</Button> */}
+              <Button color="inherit"
+                style={{ marginLeft: "auto" }}
+                startIcon={mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                onClick={() => setMode(mode === "light" ? "dark" : "light")} >
+                {mode === "light" ? "dark" : "light"} Mode
+              </Button>
+            </Toolbar>
+          </AppBar>
 
-      <Switch>
-        <Route path="/films">
-          <Redirect to="/movies" />
-        </Route >
+          <Switch>
+            <Route path="/films">
+              <Redirect to="/movies" />
+            </Route >
 
-        <Route path="/movies/add">
-          <div className="movies-page">
-            <AddMovie  />
-          </div>
-        </Route>
+            {/* <Route path="/recipe">
+              <div className="movies-page">
+                <Recipe />
+              </div>
+            </Route > */}
 
-        <Route path="/movies/edit/:id">
-          <div className="movies-page">
-            <EditMovie  />
-          </div>
-        </Route>
+            <Route path="/movies/add">
+              <div className="movies-page">
+                <AddMovie />
+              </div>
+            </Route>
 
-        <Route path="/movies/:id">
-          <div className="movies-page">
-            <DisplayMovieDetails  />
-          </div>
-        </Route>
+            <Route path="/movies/edit/:id">
+              <div className="movies-page">
+                <EditMovie />
+              </div>
+            </Route>
+
+            <Route path="/movies/:id">
+              <div className="movies-page">
+                <DisplayMovieDetails />
+              </div>
+            </Route>
 
 
-        <Route path="/movies">
-          <div className="movies-page">
-            <MovieList  />
-          </div>
-        </Route>
+            <Route path="/movies">
+              <div className="movies-page">
+                <MovieList />
+              </div>
+            </Route>
 
-        <Route path="/color-game">
-          <AddColor />
-        </Route>
+            <Route path="/color-game">
+              <AddColor />
+            </Route>
 
-        <Route path="/TicTacToe">
-          <TicTacToe />
-        </Route>
+            <Route path="/TicTacToe">
+              <TicTacToe />
+            </Route>
 
-        <Route exact path="/">
-          < Msg />
-        </Route>
+            <Route exact path="/">
+              < Msg />
+            </Route>
 
-        <Route path="**"> <NotFound /> </Route>
-      </Switch>
-     </div>
-    </Paper>  
-  </ThemeProvider>
+            <Route path="**"> <NotFound /> </Route>
+          </Switch>
+        </div>
+      </Paper>
+    </ThemeProvider>
   );
 }
 

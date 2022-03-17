@@ -1,44 +1,44 @@
-import { useState,useEffect  } from "react";
+import { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from '@mui/icons-material/Delete';
 import Badge from "@mui/material/Badge";
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import { useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from '@mui/material/Tooltip';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
-export const api="https://6209ed8f92946600171c55c2.mockapi.io/movies"
+export const api = "https://bindharan.herokuapp.com/movies"
 
 export function MovieList() {
   const history = useHistory()
   const [movies, setMovies] = useState([]);
 
-  const getMovies=()=>{
+  const getMovies = () => {
 
-    fetch(`${api}`,{
+    fetch(`${api}`, {
       method: "GET"
     })
-    .then(data=>data.json())
-    .then((movies)=>setMovies(movies))
-    
+      .then(data => data.json())
+      .then((movies) => setMovies(movies))
+
   }
 
-useEffect(() =>getMovies(),[]);
+  useEffect(() => getMovies(), []);
 
-const deleteMovie=(id)=>{
-  fetch(`${api}/${id}`,{
-    method: "DELETE"
-  }).then(()=>getMovies())
-}
+  const deleteMovie = (id) => {
+    fetch(`${api}/${id}`, {
+      method: "DELETE"
+    }).then(() => getMovies())
+  }
 
   return (
     <div className="card-container">
       {movies.map(
-        ({ name, profile, rating, description, director, stars,id }, index) => (
+        ({ name, profile, rating, description, director, stars, id }, index) => (
           <Movie
             key={index}
             name={name}
