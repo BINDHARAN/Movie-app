@@ -89,6 +89,16 @@
   cursor: pointer;
 }
 
+.drawer-icon {
+  font-family: 'Carter One', cursive;
+  display: flex;
+  font-size: larger;
+  align-items: center;
+}
+.drawer-name {
+  font-family: var(--font-serif);
+}
+
 .button-group {
   display: flex;
   align-items: center;

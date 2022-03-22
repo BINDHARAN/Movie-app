@@ -12,6 +12,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 export const api = "https://bindharan.herokuapp.com/movies"
+// export const api = "http://localhost:5000/movies"
 
 export function MovieList() {
   const history = useHistory()
@@ -38,7 +39,7 @@ export function MovieList() {
   return (
     <div className="card-container">
       {movies.map(
-        ({ name, profile, rating, description, director, stars, id }, index) => (
+        ({ name, profile, rating, description, director, stars, _id }, index) => (
           <Movie
             key={index}
             name={name}
@@ -55,7 +56,7 @@ export function MovieList() {
                 <IconButton aria-label="delete"
                   style={{ marginLeft: "auto" }}
                   onClick={() => {
-                    deleteMovie(id)
+                    deleteMovie(_id)
                   }}
                   color="error">
                   <DeleteIcon />
@@ -66,14 +67,14 @@ export function MovieList() {
             editButton={
               <Tooltip title="Edit">
                 <IconButton aria-label="edit button"
-                  onClick={() => history.push(`./movies/edit/${id}`)}
+                  onClick={() => history.push(`./movies/edit/${_id}`)}
                   color="secondary">
                   <EditIcon />
                 </IconButton>
               </Tooltip>
 
             }
-            id={id}
+            id={_id}
 
           />
         )
