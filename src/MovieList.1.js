@@ -11,7 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
-export const api = "https://bindharan.herokuapp.com/movies"
+export const api = "https://zenmovies.herokuapp.com/movies"
 // export const api = "http://localhost:5000/movies"
 
 export function MovieList() {
